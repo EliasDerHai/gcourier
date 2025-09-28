@@ -1,4 +1,4 @@
--module(mug_ffi).
+-module(gcourier_mug_ffi).
 
 -export([send/2, recv/3, shutdown/1, coerce/1, ssl_upgrade/3, ssl_connect/4, get_certs_keys/1, ssl_downgrade/2, get_system_cacerts/0]).
 

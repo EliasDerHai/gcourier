@@ -396,7 +396,7 @@ fn gen_tcp_connect(
   timeout: Int,
 ) -> Result(TcpSocket, Error)
 
-@external(erlang, "mug_ffi", "ssl_connect")
+@external(erlang, "gcourier_mug_ffi", "ssl_connect")
 fn ssl_connect(
   host: Charlist,
   port: Int,
