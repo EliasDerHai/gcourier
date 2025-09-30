@@ -15,5 +15,5 @@ pub type SystemCacertificatesGetError {
   Eopnotsup
 }
 
-@external(erlang, "mug_ffi", "get_system_cacerts")
+@external(erlang, "gcourier_mug_ffi", "get_system_cacerts")
 pub fn get() -> Result(CombinedCert, SystemCacertificatesGetError)

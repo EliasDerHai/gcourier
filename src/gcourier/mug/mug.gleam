@@ -458,7 +458,7 @@ fn get_cacerts_opt(
   }
 }
 
-@external(erlang, "mug_ffi", "get_certs_keys")
+@external(erlang, "gcourier_mug_ffi", "get_certs_keys")
 fn get_certs_keys(certs_keys: List(CertificatesKeys)) -> certs_keys
 
 /// Establish a TCP/TLS connection to the server specified in the connection
@@ -493,7 +493,7 @@ pub fn connect(options: ConnectionOptions) -> Result(Socket, Error) {
   }
 }
 
-@external(erlang, "mug_ffi", "ssl_upgrade")
+@external(erlang, "gcourier_mug_ffi", "ssl_upgrade")
 fn ssl_upgrade(
   socket: TcpSocket,
   options: List(SslOption),
@@ -541,7 +541,7 @@ pub fn upgrade(
 /// to perform the downgrade, which returns `ok` if the socket is closed, while this function returns
 /// an error. It is recommended against using this function to close the socket. Use `shutdown` instead.
 ///
-@external(erlang, "mug_ffi", "ssl_downgrade")
+@external(erlang, "gcourier_mug_ffi", "ssl_downgrade")
 pub fn downgrade(
   socket: Socket,
   milliseconds timeout: Int,
@@ -557,7 +557,7 @@ pub fn send(socket: Socket, packet: BitArray) -> Result(Nil, Error) {
 /// is more efficient than turning a `BytesBuilder` or a `StringBuilder` into a
 /// `BitArray` to use with the `send` function.
 ///
-@external(erlang, "mug_ffi", "send")
+@external(erlang, "gcourier_mug_ffi", "send")
 pub fn send_builder(socket: Socket, packet: BytesTree) -> Result(Nil, Error)
 
 /// Receive a packet from the client.
@@ -590,7 +590,7 @@ pub fn receive_exact(
   gen_tcp_receive(socket, size, timeout_milliseconds: timeout)
 }
 
-@external(erlang, "mug_ffi", "recv")
+@external(erlang, "gcourier_mug_ffi", "recv")
 fn gen_tcp_receive(
   socket: Socket,
   read_bytes_num: Int,
@@ -599,7 +599,7 @@ fn gen_tcp_receive(
 
 /// Close the socket, ensuring that any data buffered in the socket is flushed to the operating system kernel socket first.
 ///
-@external(erlang, "mug_ffi", "shutdown")
+@external(erlang, "gcourier_mug_ffi", "shutdown")
 pub fn shutdown(socket: Socket) -> Result(Nil, Error)
 
 /// Switch the socket to active mode, meaning that the next packet received on
@@ -703,7 +703,7 @@ pub fn selecting_tls_messages(
   })
 }
 
-@external(erlang, "mug_ffi", "coerce")
+@external(erlang, "gcourier_mug_ffi", "coerce")
 fn unsafe_coerce(data: Dynamic) -> a
 
 @external(erlang, "gleam_stdlib", "identity")
